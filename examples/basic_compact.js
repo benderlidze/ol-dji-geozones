@@ -1,9 +1,13 @@
 (function () {
-  
+
   var map = new ol.Map({
     layers: [
       new ol.layer.Tile({
-        source: new ol.source.OSM()
+        source: new ol.source.XYZ({
+          url: 'https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}.jpg?access_token=',
+          maxZoom: 18,
+          attributions: ['&copy; <a href="https://www.mapbox.com/">Mapbox</a>']
+        })
       })
     ],
     target: 'map',
@@ -41,5 +45,5 @@
     alert('An error ocurred: ' + err.message);
     console.log(err)
   });
-  
+
 })();
