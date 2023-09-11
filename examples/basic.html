@@ -48,21 +48,78 @@
     #autocomplete-input {
       padding: 5px;
     }
+
+    .map-button {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+      background-color: white;
+      border: 1px solid #cccccc;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5px;
+      z-index: 10;
+
+    }
+
+    .user-location {
+      top: 60px;
+      left: 10px;
+    }
+
+    .kml-upload {
+      top: 110px;
+      left: 10px;
+    }
+
+    .file-label {
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   </style>
 </head>
 
 <body>
   <div id="search">
     <input type="text" id="autocomplete-input" placeholder="Enter a location">
-    <div id="zoomToUserLocation">
-      Zoom to user location
-    </div>
-
-    <div>
-      <!-- upload a knl file input -->
-      <input type="file" id="kmlFileInput" accept=".kml" />
-    </div>
   </div>
+  <div class="map-button user-location" id="zoomToUserLocation">
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      x="0px" y="0px" viewBox="0 0 122.88 122.88" style="enable-background:new 0 0 122.88 122.88" xml:space="preserve">
+      <g>
+        <path
+          d="M68.23,13.49c10.44,1.49,19.79,6.36,26.91,13.48c7.29,7.29,12.23,16.93,13.58,27.68h14.17v13.58h-14.39 c-1.62,10.13-6.42,19.2-13.36,26.13c-7.11,7.11-16.47,11.99-26.91,13.48v15.04H54.65v-15.04c-10.44-1.49-19.79-6.36-26.9-13.48 c-6.94-6.94-11.74-16-13.36-26.13H0V54.65h14.16c1.35-10.75,6.29-20.39,13.58-27.68c7.11-7.11,16.46-11.99,26.9-13.48V0h13.58 V13.49L68.23,13.49z M61.44,35.41c13.95,0,25.25,11.31,25.25,25.25c0,13.95-11.31,25.25-25.25,25.25 c-13.95,0-25.25-11.31-25.25-25.25C36.19,46.72,47.49,35.41,61.44,35.41L61.44,35.41z M89,33.11c-7.05-7.05-16.8-11.42-27.56-11.42 c-10.76,0-20.51,4.36-27.56,11.42c-7.05,7.05-11.42,16.8-11.42,27.56c0,10.76,4.36,20.51,11.42,27.56 c7.05,7.05,16.8,11.42,27.56,11.42c10.76,0,20.51-4.36,27.56-11.42c7.05-7.05,11.42-16.8,11.42-27.56 C100.41,49.9,96.05,40.16,89,33.11L89,33.11z" />
+      </g>
+    </svg>
+  </div>
+
+  <div class="map-button kml-upload" id="">
+    <label for="kmlFileInput" class="file-label">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px" y="0px" viewBox="0 0 115.28 122.88" style="enable-background:new 0 0 115.28 122.88"
+        xml:space="preserve">
+        <style type="text/css">
+          .st0 {
+            fill-rule: evenodd;
+            clip-rule: evenodd;
+          }
+        </style>
+        <g>
+          <path class="st0"
+            d="M25.38,57h64.88V37.34H69.59c-2.17,0-5.19-1.17-6.62-2.6c-1.43-1.43-2.3-4.01-2.3-6.17V7.64l0,0H8.15 c-0.18,0-0.32,0.09-0.41,0.18C7.59,7.92,7.55,8.05,7.55,8.24v106.45c0,0.14,0.09,0.32,0.18,0.41c0.09,0.14,0.28,0.18,0.41,0.18 c22.78,0,58.09,0,81.51,0c0.18,0,0.17-0.09,0.27-0.18c0.14-0.09,0.33-0.28,0.33-0.41v-11.16H25.38c-4.14,0-7.56-3.4-7.56-7.56 V64.55C17.82,60.4,21.22,57,25.38,57L25.38,57z M29.74,68.66h6.92v8.47l7.26-8.47h9.21l-8.18,8.42l8.56,14h-8.52l-4.73-9.21 l-3.6,3.75v5.46h-6.92V68.66L29.74,68.66z M55.27,68.66h9.14l3.48,13.64l3.49-13.64h9.1v22.42h-5.67v-17.1l-4.37,17.1H65.3 l-4.36-17.1v17.1h-5.67V68.66L55.27,68.66z M84.43,68.66h6.92v16.91h10.84v5.51H84.43V68.66L84.43,68.66z M97.79,57h9.93 c4.16,0,7.56,3.41,7.56,7.56v31.42c0,4.15-3.41,7.56-7.56,7.56h-9.93v13.55c0,1.61-0.65,3.04-1.7,4.1c-1.06,1.06-2.49,1.7-4.1,1.7 c-29.44,0-56.59,0-86.18,0c-1.61,0-3.04-0.64-4.1-1.7c-1.06-1.06-1.7-2.49-1.7-4.1V5.85c0-1.61,0.65-3.04,1.7-4.1 c1.06-1.06,2.53-1.7,4.1-1.7h58.72C64.66,0,64.8,0,64.94,0c0.64,0,1.29,0.28,1.75,0.69h0.09c0.09,0.05,0.14,0.09,0.23,0.18 l29.99,30.36c0.51,0.51,0.88,1.2,0.88,1.98c0,0.23-0.05,0.41-0.09,0.65V57L97.79,57z M67.52,27.97V8.94l21.43,21.7H70.19 c-0.74,0-1.38-0.32-1.89-0.78C67.84,29.4,67.52,28.71,67.52,27.97L67.52,27.97z" />
+        </g>
+      </svg>
+    </label>
+    <input type="file" id="kmlFileInput" accept=".kml" style="display: none;" />
+  </div>
+
   <div id="map" class="map"></div>
   <script src="https://cdn.jsdelivr.net/npm/ol@v8.0.0/dist/ol.js"></script>
   <script src="../dist/ol-dji-geozones.js"></script>
